@@ -99,7 +99,7 @@ void meanu(int choice, int seat, int chart[][SEATS_PER_ROW])
 
     do
     {
-        printf("\nMenu: 10:30 - 12:30\n");
+        printf("\nMenu:\n");
         printf("1. Display seating chart\n");
         printf("2. Book a seat\n");
         printf("3. see the total price\n");
