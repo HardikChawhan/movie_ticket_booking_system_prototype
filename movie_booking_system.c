@@ -186,7 +186,7 @@ void meanu(int choice, int seat, int chart[][SEATS_PER_ROW])
             break;
         }
 
-    } while (choice != 4);
+    } while (choice != 5);
 }
 
 void save_seating_chart(const char *filename, int chart[][SEATS_PER_ROW])
