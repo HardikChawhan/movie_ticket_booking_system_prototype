@@ -92,47 +92,6 @@ void total_price(int seat)
     printf("\n");
 }
 
-void remove_seat(int chart[][SEATS_PER_ROW]){
-
-    int row,col;
-    printf("\nEnter which seat you want to cancel (row,column): ");
-    scanf("%d %d",&row, &col);
-
-    if (row < 1 || col < 1 || row > NUM_ROWS || col > SEATS_PER_ROW)
-    {
-        printf("\nInvalid Seat or Row number\n");
-        return;
-    }
-
-    if (chart[row-1][col-1]==0)
-    {
-        printf("\nThe seat is not yet booked\n");
-        return;
-    }
-
-    chart[row-1][col-1]=0;
-    printf("\nYour ticket has been cancelled\n");
-}
-
-void cancel_ticket(int chart[][SEATS_PER_ROW]){
-    int n;
-    printf("How many tickets you want to cancel (maximum 5 allowed) : ");
-    scanf("%d",&n);
-
-    if (n<1 || n>5)
-    {
-        printf("\nError! : Please enter a valid number\n");
-        return;
-    }
-    
-
-    for (int i = 0; i < n; i++)
-    {
-        remove_seat(chart);
-    }
-
-}
-
 void meanu(int choice, int seat, int chart[][SEATS_PER_ROW])
 {
 
@@ -144,8 +103,7 @@ void meanu(int choice, int seat, int chart[][SEATS_PER_ROW])
         printf("1. Display seating chart\n");
         printf("2. Book a seat\n");
         printf("3. see the total price\n");
-        printf("4. cancel a seat\n");
-        printf("5. Quit\n");
+        printf("4. Quit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -174,10 +132,6 @@ void meanu(int choice, int seat, int chart[][SEATS_PER_ROW])
             break;
 
         case 4:
-            cancel_ticket(chart);
-            break;
-
-        case 5:
             printf("Exit!\n");
             break;
 
