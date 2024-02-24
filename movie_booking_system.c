@@ -48,7 +48,7 @@ int booking_seat(int seat_char[][SEATS_PER_ROW], int row, int seat)
 {
     if (row < 1 || seat < 1 || row > NUM_ROWS || seat > SEATS_PER_ROW)
     {
-        printf("Invalid Seat or Row number");
+        printf("Invalid Seat or Row number\n");
         return 0;
     }
 
