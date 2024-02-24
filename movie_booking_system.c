@@ -10,6 +10,8 @@
 #define SEATS_PER_ROW 10
 #define TICKET_PRICE 150
 
+int total_seat_booked = 0;
+
 void initializing_seating_arrangement(int seat[][SEATS_PER_ROW])
 {
     for (int i = 0; i < NUM_ROWS; i++)
@@ -54,6 +56,7 @@ int booking_seat(int seat_char[][SEATS_PER_ROW], int row, int seat)
     {
         seat_char[row - 1][seat - 1] = 1; // -1 because we are running the loop from 0 and not 1
         printf("Seat in row %d , seat %d is booked\n", row, seat);
+        total_seat_booked++;
         return 1;
     }
     else
@@ -87,8 +90,8 @@ int bookSeatsLimit(int chart[][SEATS_PER_ROW], int numSeats)
 
 void total_price(int seat)
 {
-    int total = seat * TICKET_PRICE;
-    printf("Total price for %d Seat(s) is Rs.%d/- \n", seat, total);
+    int total = total_seat_booked * TICKET_PRICE;
+    printf("Total price for %d Seat(s) is Rs.%d/- \n", total_seat_booked, total);
     printf("\n");
 }
 
@@ -112,6 +115,7 @@ void remove_seat(int chart[][SEATS_PER_ROW]){
 
     chart[row-1][col-1]=0;
     printf("\nYour ticket has been cancelled\n");
+    total_seat_booked--;
 }
 
 void cancel_ticket(int chart[][SEATS_PER_ROW]){
